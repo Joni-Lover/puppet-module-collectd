@@ -16,9 +16,11 @@ class collectd(
   validate_bool($purge_config, $fqdnlookup)
   validate_array($typesdb)
 
-  package { 'collectd':
+  $packages_str = split($collectd::params::package, '\s+')
+
+  package { $packages_str:
     ensure   => $version,
-    name     => $collectd::params::package,
+    #    name     => $packages_str,
     provider => $collectd::params::provider,
     before   => File['collectd.conf', 'collectd.d'],
   }

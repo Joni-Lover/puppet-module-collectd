@@ -21,7 +21,7 @@ class collectd::params {
       $root_group        = 'root'
     }
     'Redhat': {
-      $package           = 'collectd'
+      $package           = 'collectd perl-Collectd'
       $provider          = 'yum'
       $collectd_dir      = '/etc/collectd.d'
       $plugin_conf_dir   = $collectd_dir

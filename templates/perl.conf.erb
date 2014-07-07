@@ -1,0 +1,17 @@
+<LoadPlugin "perl">
+    Globals true
+</LoadPlugin>
+
+<Plugin "perl">
+    BaseName "Collectd::Plugins"
+    IncludeDir "<%= @includedir %>"
+
+<% @name.each do |modules| -%>
+    LoadPlugin "<%= @modules %>"
+    <Module "<%= @modules %>">
+<% @config.sort.each do |key,value| -%>
+		<%= key -%> "<%= value -%>"
+<% end -%>
+    </Module>
+<% end -%>
+</Plugin>
