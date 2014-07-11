@@ -1,6 +1,6 @@
 # See http://collectd.org/documentation/manpages/collectd.conf.5.shtml#plugin_perl
 define collectd::plugin::perl (
-  $modulepath,
+  $includedir,
   $module,
   $script_source,
   $config = {},
@@ -22,7 +22,7 @@ define collectd::plugin::perl (
   }
   file {
     "${name}.script":
-      path    => "${modulepath}/${module}.pm",
+      path    => "${includedir}/${module}.pm",
       owner   => 'root',
       group   => $collectd::params::root_group,
       mode    => '0644',

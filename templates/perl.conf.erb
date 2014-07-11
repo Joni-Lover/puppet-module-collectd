@@ -6,12 +6,10 @@
     BaseName "Collectd::Plugins"
     IncludeDir "<%= @includedir %>"
 
-<% @name.each do |modules| -%>
-    LoadPlugin "<%= @modules %>"
-    <Module "<%= @modules %>">
+    LoadPlugin "<%= @module %>"
+    <Module "<%= @module %>">
 <% @config.sort.each do |key,value| -%>
 		<%= key -%> "<%= value -%>"
 <% end -%>
     </Module>
-<% end -%>
 </Plugin>
